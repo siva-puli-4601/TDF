@@ -1,0 +1,26 @@
+<h1>Form</h1>
+<form #formele="ngForm">
+ {{formele.value | json }}
+ <br>
+  <label>Name</label>
+  <input type="text" required  [class.is-invalid]="name.touched && name.invalid" #name="ngModel" name="name" ngModel/><br><br>
+  <small [class.d-none]="name.valid || name.untouched">Name required</small>
+  <!-- {{name.untouched }} -->
+  <label>Email</label>
+  <input type="email" name="email" ngModel/><br><br>
+
+  <label>Intrest</label>
+  <select name="intrest" >
+    <option selected>I am Intrest in</option>
+    <option *ngFor="let item of intrest">{{item}}</option>
+  </select><br><br>
+
+<label>Time preferance  :</label>
+  morning<input type="radio" name="time" value="morning" ngModel/>
+  evening<input type="radio" name="time" value="evening" ngModel/><br><br>
+
+<label>Subscribe</label>
+<input type="checkbox" name="subscribe" value="subscribe" ngModel/><br><br>
+<button type="submit">Submit</button>
+
+</form>
